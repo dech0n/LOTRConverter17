@@ -11,9 +11,16 @@ struct ContentView: View {
     var body: some View {
         ZStack {
             // background image
+            Image(.background)
+                .resizable() // overrides default of max image size
+                .ignoresSafeArea()
             
             VStack {
                 // Prancing Pony image view
+                Image(.prancingpony)
+                    .resizable()
+                    .scaledToFit()
+                    .frame(height: 200)
                 
                 // Currency exchange text
                 
