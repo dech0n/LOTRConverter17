@@ -71,12 +71,15 @@ struct ContentView: View {
                         Text("Textfield")
                     }
                 }
+                
+                Spacer() // pushes views away from this spacer
+                
                 // Info button
                 Image(systemName: "info.circle.fill")
                     .font(.largeTitle)
                     .foregroundStyle(.white)
             }
-            .border(.blue) // useful for checking where the stack is visually
+//            .border(.blue) // useful for checking where the stack is visually
         }
     }
 }
