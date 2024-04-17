@@ -29,22 +29,7 @@ struct ExchangeInfo: View {
                 
                 // exchg rates
                 
-                HStack {
-                    // left currency image
-                    Image(.goldpiece)
-                        .resizable()
-                        .scaledToFit()
-                        .frame(height: 33)
-                    
-                    // exchg rate text
-                    Text("1 Gold Piece = 4 Gold Pennies")
-                    
-                    // right currency image
-                    Image(.goldpenny)
-                        .resizable()
-                        .scaledToFit()
-                        .frame(height: 33)
-                }
+                ExtractedView()
                 
                 // Done button
                 Button("Done") {
@@ -67,3 +52,4 @@ struct ExchangeInfo: View {
 #Preview {
     ExchangeInfo()
 }
+
