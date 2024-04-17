@@ -30,23 +30,7 @@ struct SelectCurrency: View {
                     .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
                 
                 // currency icons
-                ZStack(alignment: .bottom) { // applies alignment ot all text in Zstack
-                    // currency image
-                    Image(.copperpenny)
-                        .resizable()
-                        .scaledToFit()
-                    
-                    // currency name
-                    Text("Copper Penny")
-                        .padding(3)
-                        .font(.caption)
-                        .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/)
-                        .background(.brown.opacity(0.75))
-                }
-                .padding(3) // apply to all elements in ZStack
-                .frame(width: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/, height: 100)
-                .background(.brown)
-                .clipShape(.rect(cornerRadius: 25))
+                CurrencyIcon(currencyImage: .copperpenny, currencyName: "Copper Penny")
                 
                 // done button
                 Button("Done") {
