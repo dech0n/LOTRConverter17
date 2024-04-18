@@ -6,12 +6,15 @@
 //
 import SwiftUI
 
-enum Currency: Double, CaseIterable {
+enum Currency: Double, CaseIterable, Identifiable {
     case copperPenny = 6400
     case silverPenny = 64
     case silverPiece = 16
     case goldPenny = 4
     case goldPiece = 1
+    
+//    var id: Double { rawValue } // this is also acceptable for id
+    var id: Currency { self }
     
     var image: ImageResource { // computed property; always need type declared
         switch self {
