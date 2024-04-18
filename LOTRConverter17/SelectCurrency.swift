@@ -30,7 +30,11 @@ struct SelectCurrency: View {
                     .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
                 
                 // currency icons
-                CurrencyIcon(currencyImage: .copperpenny, currencyName: "Copper Penny")
+                LazyVGrid(columns: [GridItem(), GridItem(), GridItem()]) {
+                    ForEach(Currency.allCases) { currency in
+                        CurrencyIcon(currencyImage: currency.image, currencyName: currency.name)
+                    }
+                }
                 
                 // done button
                 Button("Done") {
