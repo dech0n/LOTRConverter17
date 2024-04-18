@@ -25,8 +25,8 @@ struct CurrencyIcon: View {
                 .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/) // as wide as the parent view
                 .background(.brown.opacity(0.75))
         }
-        .padding(3) // apply to all elements in ZStack
-        .frame(width: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/, height: 100)
+        .padding(3)
+        .frame(width: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/, height: 100) // sets the bounds for Text's frame b/c `maxWidth: .infinity`
         .background(.brown)
         .clipShape(.rect(cornerRadius: 25))
     }

@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct IconGrid: View {
-    @State var currency: Currency // @State will trigger a screen refresh if self.currency's value changes
+    @Binding var currency: Currency // @Binding will make sure self.currency is updated from a bound property (i.e. $propertyName)
     
     var body: some View {
         LazyVGrid(columns: [GridItem(), GridItem(), GridItem()]) {
@@ -33,5 +33,5 @@ struct IconGrid: View {
 }
 
 #Preview {
-    IconGrid(currency: .silverPiece)
+    IconGrid(currency: .constant(.silverPiece)) // Binding.constant() -- just allows us to test a value in the preview
 }
