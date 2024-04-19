@@ -31,14 +31,10 @@ struct ConversionStack: View {
             .onTapGesture {
                 showSelectCurrency.toggle()
             }
-            .popoverTip(CurrencyTip(), arrowEdge: .bottom)
             // Textfield
             TextField("Amount", text: $amount) // `$` binds the var/const with the user input
                 .textFieldStyle(.roundedBorder)
                 .keyboardType(.decimalPad)
-        }
-        .task { // allows us to run code in the bg when screen appears
-            try? Tips.configure()
         }
     }
 }

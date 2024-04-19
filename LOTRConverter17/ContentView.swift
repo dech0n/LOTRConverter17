@@ -28,10 +28,6 @@ struct ContentView: View {
             Image(.background)
                 .resizable() // overrides default of max image size
                 .ignoresSafeArea()
-//                .onTapGesture {
-//                    leftTyping = false
-//                    rightTyping = false
-//                }
             
             VStack {
                 // Prancing Pony image view
@@ -65,6 +61,7 @@ struct ContentView: View {
                                     amount: $rightAmount)
                     .focused($rightTyping)
                 }
+                .popoverTip(CurrencyTip(), arrowEdge: .bottom)
                 .padding()
                 .background(.black.opacity(0.5))
                 .clipShape(.capsule)
@@ -84,38 +81,38 @@ struct ContentView: View {
                     }
                     .padding(.trailing)
                 }
-                .onChange(of: rightAmount) {
-                    if rightTyping { // if right textfield is focused
-                        leftAmount = rightCurrency.convert(rightAmount, to: leftCurrency)
-                    }
-                }
-                .onChange(of: rightCurrency) {
-                    rightAmount = leftCurrency.convert(leftAmount, to: rightCurrency)
-                }
-                .onChange(of: leftAmount) {
-                    if leftTyping {
-                        rightAmount = leftCurrency.convert(leftAmount, to: rightCurrency)
-                    }
-                }
-                .onChange(of: leftCurrency) {
-                    leftAmount = rightCurrency.convert(rightAmount, to: leftCurrency)
-                }
-                .sheet(isPresented: $showExchangeInfo) {
-                    ExchangeInfo()
-                }
-                .sheet(isPresented: $showSelectCurrency) {
-                    SelectCurrency(topCurrency: $leftCurrency, bottomCurrency: $rightCurrency)
-                }
-                
-                
-                
             }
             //            .border(.blue) // useful for checking where the stack is visually
         }
-//        .onTapGesture {
-//            leftTyping = false
-//            rightTyping = false
-//        }
+        .task { // allows us to run code in the bg when screen appears
+            try? Tips.configure()
+        }
+        .onChange(of: rightAmount) {
+            if rightTyping { // if right textfield is focused
+                leftAmount = rightCurrency.convert(rightAmount, to: leftCurrency)
+            }
+        }
+        .onChange(of: rightCurrency) {
+            rightAmount = leftCurrency.convert(leftAmount, to: rightCurrency)
+        }
+        .onChange(of: leftAmount) {
+            if leftTyping {
+                rightAmount = leftCurrency.convert(leftAmount, to: rightCurrency)
+            }
+        }
+        .onChange(of: leftCurrency) {
+            leftAmount = rightCurrency.convert(rightAmount, to: leftCurrency)
+        }
+        .sheet(isPresented: $showExchangeInfo) {
+            ExchangeInfo()
+        }
+        .sheet(isPresented: $showSelectCurrency) {
+            SelectCurrency(topCurrency: $leftCurrency, bottomCurrency: $rightCurrency)
+        }
+        .onTapGesture {
+            leftTyping = false
+            rightTyping = false
+        }
     }
 }
 
