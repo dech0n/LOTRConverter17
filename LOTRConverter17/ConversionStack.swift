@@ -6,12 +6,12 @@
 //
 
 import SwiftUI
+import TipKit
 
 struct ConversionStack: View {
-    @State var currency: Currency = .silverPiece
-    @State var showSelectCurrency = false
-    @FocusState var typing
-    @State var amount = ""
+    @Binding var currency: Currency
+    @Binding var showSelectCurrency: Bool
+    @Binding var amount: String
     
     var body: some View {
         VStack {
@@ -35,12 +35,14 @@ struct ConversionStack: View {
             // Textfield
             TextField("Amount", text: $amount) // `$` binds the var/const with the user input
                 .textFieldStyle(.roundedBorder)
-                .focused($typing)
                 .keyboardType(.decimalPad)
+        }
+        .task { // allows us to run code in the bg when screen appears
+            try? Tips.configure()
         }
     }
 }
 
-#Preview {
-    ConversionStack()
-}
+//#Preview {
+//    ConversionStack()
+//}
