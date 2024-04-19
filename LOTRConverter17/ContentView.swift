@@ -17,6 +17,7 @@ struct ContentView: View {
     
     @FocusState var leftTyping
     @FocusState var rightTyping
+    @FocusState var showingKeyboard
     
     @State var leftCurrency: Currency = .silverPiece
     @State var rightCurrency: Currency = .goldPiece
@@ -27,6 +28,10 @@ struct ContentView: View {
             Image(.background)
                 .resizable() // overrides default of max image size
                 .ignoresSafeArea()
+//                .onTapGesture {
+//                    leftTyping = false
+//                    rightTyping = false
+//                }
             
             VStack {
                 // Prancing Pony image view
@@ -151,7 +156,11 @@ struct ContentView: View {
                 
                 
             }
-//            .border(.blue) // useful for checking where the stack is visually
+            //            .border(.blue) // useful for checking where the stack is visually
+        }
+        .onTapGesture {
+            leftTyping = false
+            rightTyping = false
         }
     }
 }
