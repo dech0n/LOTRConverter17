@@ -123,7 +123,7 @@ struct ContentView: View {
                     }
                 }
                 .onChange(of: rightCurrency) {
-                    leftAmount = rightCurrency.convert(rightAmount, to: leftCurrency)
+                    rightAmount = leftCurrency.convert(leftAmount, to: rightCurrency)
                 }
                 .onChange(of: leftAmount) {
                     if leftTyping {
@@ -131,7 +131,7 @@ struct ContentView: View {
                     }
                 }
                 .onChange(of: leftCurrency) {
-                    rightAmount = leftCurrency.convert(leftAmount, to: rightCurrency)
+                    leftAmount = rightCurrency.convert(rightAmount, to: leftCurrency)
                 }
                 .sheet(isPresented: $showExchangeInfo) {
                     ExchangeInfo()
