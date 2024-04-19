@@ -63,7 +63,9 @@ struct ContentView: View {
                         TextField("Amount", text: $leftAmount) // `$` binds the var/const with the user input
                             .textFieldStyle(.roundedBorder)
                             .focused($leftTyping)
+                            .keyboardType(.decimalPad)
                     }
+                    
                     // equal sign
                     Image(systemName: "equal")
                         .font(.largeTitle)
@@ -95,6 +97,7 @@ struct ContentView: View {
                             .textFieldStyle(.roundedBorder)
                             .multilineTextAlignment(.trailing)
                             .focused($rightTyping)
+                            .keyboardType(.decimalPad)
                             
                     }
                 }
