@@ -18,6 +18,7 @@
 		B92412C42BD0A53500B781BE /* Currency.swift in Sources */ = {isa = PBXBuildFile; fileRef = B92412C32BD0A53500B781BE /* Currency.swift */; };
 		B92412C62BD1A35400B781BE /* IconGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = B92412C52BD1A35400B781BE /* IconGrid.swift */; };
 		B92412C82BD2E86F00B781BE /* CurrencyTip.swift in Sources */ = {isa = PBXBuildFile; fileRef = B92412C72BD2E86F00B781BE /* CurrencyTip.swift */; };
+		B9C13DD82BD3207500BFD52B /* ConversionStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9C13DD72BD3207500BFD52B /* ConversionStack.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +34,7 @@
 		B92412C32BD0A53500B781BE /* Currency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Currency.swift; sourceTree = "<group>"; };
 		B92412C52BD1A35400B781BE /* IconGrid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconGrid.swift; sourceTree = "<group>"; };
 		B92412C72BD2E86F00B781BE /* CurrencyTip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyTip.swift; sourceTree = "<group>"; };
+		B9C13DD72BD3207500BFD52B /* ConversionStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversionStack.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +69,7 @@
 			children = (
 				B92412AD2BCDCA3900B781BE /* LOTRConverter17App.swift */,
 				B92412AF2BCDCA3900B781BE /* ContentView.swift */,
+				B9C13DD72BD3207500BFD52B /* ConversionStack.swift */,
 				B92412C72BD2E86F00B781BE /* CurrencyTip.swift */,
 				B92412BF2BD0629500B781BE /* SelectCurrency.swift */,
 				B92412C52BD1A35400B781BE /* IconGrid.swift */,
@@ -166,6 +169,7 @@
 				B92412C82BD2E86F00B781BE /* CurrencyTip.swift in Sources */,
 				B92412AE2BCDCA3900B781BE /* LOTRConverter17App.swift in Sources */,
 				B92412C42BD0A53500B781BE /* Currency.swift in Sources */,
+				B9C13DD82BD3207500BFD52B /* ConversionStack.swift in Sources */,
 				B92412C22BD067B700B781BE /* CurrencyIcon.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
