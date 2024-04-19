@@ -48,30 +48,10 @@ struct ContentView: View {
                 // Conversion section
                 HStack {
                     // left conversion section
-                    VStack {
-                        // Currency
-                        HStack {
-                            // Currency image
-                            Image(leftCurrency.image)
-                                .resizable()
-                                .scaledToFit()
-                                .frame(height: 33)
-                            // Currency text
-                            Text(leftCurrency.name)
-                                .font(.headline)
-                                .foregroundStyle(.white)
-                        }
-                        .padding(.bottom, -5)
-                        .onTapGesture {
-                            showSelectCurrency.toggle()
-                        }
-                        .popoverTip(CurrencyTip(), arrowEdge: .bottom)
-                        // Textfield
-                        TextField("Amount", text: $leftAmount) // `$` binds the var/const with the user input
-                            .textFieldStyle(.roundedBorder)
-                            .focused($leftTyping)
-                            .keyboardType(.decimalPad)
-                    }
+                    ConversionStack(currency: $leftCurrency,
+                                    showSelectCurrency: $showSelectCurrency,
+                                    amount: $leftAmount)
+                    .focused($leftTyping)
                     
                     // equal sign
                     Image(systemName: "equal")
@@ -80,33 +60,10 @@ struct ContentView: View {
                         .symbolEffect(.pulse)
                     
                     // right conversion section
-                    VStack {
-                        // Currency
-                        HStack {
-                            // Currency text
-                            Text(rightCurrency.name)
-                                .font(.headline)
-                                .foregroundStyle(.white)
-                            
-                            // Currency image
-                            Image(rightCurrency.image)
-                                .resizable()
-                                .scaledToFit()
-                                .frame(height: 33)
-                        }
-                        .padding(.bottom, -5)
-                        .onTapGesture {
-                            showSelectCurrency.toggle()
-                        }
-                        
-                        // Textfield
-                        TextField("Amount", text: $rightAmount)
-                            .textFieldStyle(.roundedBorder)
-                            .multilineTextAlignment(.trailing)
-                            .focused($rightTyping)
-                            .keyboardType(.decimalPad)
-                            
-                    }
+                    ConversionStack(currency: $rightCurrency,
+                                    showSelectCurrency: $showSelectCurrency,
+                                    amount: $rightAmount)
+                    .focused($rightTyping)
                 }
                 .padding()
                 .background(.black.opacity(0.5))
@@ -126,9 +83,6 @@ struct ContentView: View {
                             .foregroundStyle(.white)
                     }
                     .padding(.trailing)
-                }
-                .task { // allows us to run code in the bg when screen appears
-                    try? Tips.configure()
                 }
                 .onChange(of: rightAmount) {
                     if rightTyping { // if right textfield is focused
@@ -158,10 +112,10 @@ struct ContentView: View {
             }
             //            .border(.blue) // useful for checking where the stack is visually
         }
-        .onTapGesture {
-            leftTyping = false
-            rightTyping = false
-        }
+//        .onTapGesture {
+//            leftTyping = false
+//            rightTyping = false
+//        }
     }
 }
 
