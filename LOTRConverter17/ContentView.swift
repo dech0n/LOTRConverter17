@@ -47,6 +47,7 @@ struct ContentView: View {
                     ConversionStack(currency: $leftCurrency,
                                     showSelectCurrency: $showSelectCurrency,
                                     amount: $leftAmount)
+                    .popoverTip(CurrencyTip(), arrowEdge: .bottom)
                     .focused($leftTyping)
                     
                     // equal sign
@@ -61,7 +62,6 @@ struct ContentView: View {
                                     amount: $rightAmount)
                     .focused($rightTyping)
                 }
-                .popoverTip(CurrencyTip(), arrowEdge: .bottom)
                 .padding()
                 .background(.black.opacity(0.5))
                 .clipShape(.capsule)
