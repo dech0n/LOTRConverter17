@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import TipKit
 
 struct ContentView: View {
     @State var showExchangeInfo = false
@@ -59,6 +60,7 @@ struct ContentView: View {
                         .onTapGesture {
                             showSelectCurrency.toggle()
                         }
+                        .popoverTip(CurrencyTip(), arrowEdge: .bottom)
                         // Textfield
                         TextField("Amount", text: $leftAmount) // `$` binds the var/const with the user input
                             .textFieldStyle(.roundedBorder)
@@ -119,6 +121,9 @@ struct ContentView: View {
                             .foregroundStyle(.white)
                     }
                     .padding(.trailing)
+                }
+                .task { // allows us to run code in the bg when screen appears
+                    try? Tips.configure()
                 }
                 .onChange(of: rightAmount) {
                     if rightTyping { // if right textfield is focused
